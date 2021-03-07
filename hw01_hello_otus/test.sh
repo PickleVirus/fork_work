@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+#set -xeuo pipefail
 
 expected='!SUTO ,olleH'
 result=$(go run main.go | sed 's/^ *//;s/ *$//')
