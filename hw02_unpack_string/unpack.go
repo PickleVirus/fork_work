@@ -23,12 +23,14 @@ func Unpack(s string) (string, error) {
 				ErrInvalidString = errors.New("invalid string")
 			} else if unicode.IsDigit(ra[i-1]) == true {
 				ErrInvalidString = errors.New("invalid string")
-			} else if e == '0' {
-				a = strings.TrimSuffix(a, string(ra[i-1]))
 			} else {
-				x, _ := strconv.Atoi(string(e))
-				for c := 1; c < x; c++ {
-					a = a + string(ra[i-1])
+				if e == '0' {
+					a = strings.TrimSuffix(a, string(ra[i-1]))
+				} else {
+					x, _ := strconv.Atoi(string(e))
+					for c := 1; c < x; c++ {
+						a = a + string(ra[i-1])
+					}
 				}
 			}
 		}
